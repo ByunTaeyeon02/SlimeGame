@@ -7,7 +7,7 @@ public class CameraFollow2 : MonoBehaviour
     public Transform targetClone;
     public Vector3 offset = new Vector3(0f, 0f, -10f);
     //public float newSize = 8f;
-    public float minSize = 5f; // Set a minimum camera size to prevent extreme zooming in
+    public float minSize = 8f; // Set a minimum camera size to prevent extreme zooming in
     public float maxSize = 15f; // Set a maximum camera size to prevent extreme zooming out
     public float distanceOffset = -2.5f;
 
