@@ -4094,12 +4094,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1582754520}
   targetClone: {fileID: 734211059}
-  offset: {x: 0, y: 3, z: -10}
+  offset: {x: 2, y: 3, z: -10}
   zoomSize: 7
   curCam: 0
   minSize: 8
   maxSize: 15
   distanceOffset: -2.5
+  camSpeed: 1.5
+  maxOffsetX: 10
 --- !u!1 &854893788
 GameObject:
   m_ObjectHideFlags: 0
