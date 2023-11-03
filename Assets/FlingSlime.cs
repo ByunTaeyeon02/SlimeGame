@@ -7,7 +7,7 @@ public class FlingSlime : MonoBehaviour
     private Vector3 initialPosition;
     private Vector3 mousePressPosition;
     private float dragForce = 5f;
-    public float maxVelocity = 25f;
+    public float maxVelocity = 20f;
 
     public Rigidbody2D bone1;
     public Rigidbody2D bone2;
