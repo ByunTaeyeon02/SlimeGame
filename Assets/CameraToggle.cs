@@ -20,6 +20,25 @@ public class CameraToggle : MonoBehaviour
     private Vector3 lastTargetPosition;
     private Vector3 lastTargetClonePosition;
 
+    public float targetAspectRatio = 16f / 9f;
+    void Start()
+    {
+        // Calculate the target aspect ratio
+        float currentAspectRatio = (float)Screen.width / Screen.height;
+
+        // Calculate the desired field of view to match the target aspect ratio
+        float fov = GetComponent<Camera>().fieldOfView;
+        float desiredFov = fov * (targetAspectRatio / currentAspectRatio);
+
+        // Set the field of view to match the target aspect ratio
+        GetComponent<Camera>().fieldOfView = desiredFov;
+    }
+
+    public void SetCurCam(int newCam)
+    {
+        curCam = newCam;
+    }
+
     private void LateUpdate()
     {
         // Detect keyboard input to change curCam value

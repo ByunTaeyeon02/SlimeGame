@@ -3000,6 +3000,8 @@ GameObject:
   - component: {fileID: 699115064}
   - component: {fileID: 699115063}
   - component: {fileID: 699115062}
+  - component: {fileID: 699115067}
+  - component: {fileID: 699115066}
   m_Layer: 0
   m_Name: TestJiggle
   m_TagString: Untagged
@@ -3187,6 +3189,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &699115066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699115060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cc5f7959858f444abcf8b3cbe4526a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 20
+  slime1: {fileID: 0}
+  slime2: {fileID: 0}
+  dashLineRenderer: {fileID: 0}
+  dashLineWidth: 0.2
+  dashLineSpacing: 0.2
+--- !u!114 &699115067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699115060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ecc549393a70643a2955d7ea22760e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bones: []
 --- !u!1 &723194343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,7 +6489,7 @@ GameObject:
   - component: {fileID: 1582754523}
   - component: {fileID: 1582754522}
   m_Layer: 0
-  m_Name: bone_7
+  m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
