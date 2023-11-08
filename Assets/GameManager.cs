@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public SlimeScript slime1;
     public SlimeScript slime2;
     public TextMeshProUGUI heartsText;
-    public TextMeshProUGUI parText;
+    public TextMeshProUGUI strokeText;
 
     public FinishLine slime1Finish;
     public FinishLine slime2Finish;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         heartsText.text = "Slime1 Hearts: " + slime1.health + "\nSlime2 Hearts: " + slime2.health;
 
-        parText.text = "Par: " + slime1.GetComponent<FlingSlimeSimplify>().parNum;
+        strokeText.text = "Stroke: " + slime1.GetComponent<FlingSlimeSimplify>().parNum;
 
         if (!isPaused)
         {

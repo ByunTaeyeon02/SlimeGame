@@ -20,6 +20,7 @@ public class FlingSlimeSimplify : MonoBehaviour
     public float minDragMag = 0.1f;
 
     public int parNum = 0;
+    public bool dragging = false;
 
     private void Start()
     {
@@ -48,6 +49,12 @@ public class FlingSlimeSimplify : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            // Do nothing if the mouse is over a UI element
+            return;
+        }
+        dragging = true;
         mousePressPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePressPosition.z = 0f;
         //initialPosition = transform.position;
@@ -65,6 +72,9 @@ public class FlingSlimeSimplify : MonoBehaviour
 
     private void DrawDashLine()
     {
+        if (!dragging)
+            return;
+
         Vector3[] positions = CalculateDashLinePositions();
         dashLineRenderer.positionCount = positions.Length;
         dashLineRenderer.SetPositions(positions);
@@ -91,11 +101,8 @@ public class FlingSlimeSimplify : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            // Do nothing if the mouse is over a UI element
+        if (!dragging)
             return;
-        }
 
         Vector3 mouseReleasePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseReleasePosition.z = 0f;
@@ -123,5 +130,6 @@ public class FlingSlimeSimplify : MonoBehaviour
         }
         parNum++;
         dashLineRenderer.positionCount = 0;
+        dragging = false;
     }
 }
