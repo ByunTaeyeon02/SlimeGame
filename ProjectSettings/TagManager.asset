@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slime
+  - PlatformFront
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackgroundFront
+    uniqueID: 697832205
+    locked: 0
+  - name: PlatformBack
+    uniqueID: 2180594799
+    locked: 0
+  - name: PlatformMid
+    uniqueID: 4195436755
+    locked: 0
+  - name: PlatformFront
+    uniqueID: 4184192331
     locked: 0
   - name: UI
     uniqueID: 711974749

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -50,8 +51,16 @@ public class GameManager : MonoBehaviour
 
         if (slime1Finish.onPlatform && slime2Finish.onPlatform)
         {
-            Debug.Log("Yiipeee");
-            SceneManager.LoadScene("Title");
+            Debug.Log(strokeText.text);
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            Debug.Log(currentSceneName);
+            if (String.Compare(currentSceneName, "Tutorial Beta") == 0)
+            {
+                SceneManager.LoadScene("Lvl1 Beta");
+            } else
+            {
+                SceneManager.LoadScene("Title");
+            }
         }
     }
 
