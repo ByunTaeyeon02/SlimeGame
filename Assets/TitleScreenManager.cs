@@ -9,19 +9,26 @@ public class TitleScreenManager : MonoBehaviour
     public void OnStartButtonClick()
     {
         PlaySoundAndLoadScene("Lvl 1");
-        Debug.Log("Load Lvl1");
     }
 
     public void OnTutorialButtonClick()
     {
         PlaySoundAndLoadScene("Tutorial");
-        Debug.Log("Load Tutorial");
     }
 
     public void OnReturnButtonClick()
     {
         PlaySoundAndLoadScene("TitleScreen");
-        Debug.Log("Load Title");
+    }
+
+    public void OnHighscoreClick()
+    {
+        PlaySoundAndLoadScene("Highscore");
+    }
+
+    public void OnCreditClick()
+    {
+        PlaySoundAndLoadScene("Credits");
     }
 
     private void PlaySoundAndLoadScene(string sceneName)
@@ -33,6 +40,6 @@ public class TitleScreenManager : MonoBehaviour
 
     private void LoadScene()
     {
-        // Do nothing here, as the scene loading is invoked with a delay
+        
     }
 }

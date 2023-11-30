@@ -11,6 +11,7 @@ public class SummaryManager : MonoBehaviour
 {
     public TextMeshProUGUI strokeLvl1;
     public TextMeshProUGUI strokeLvl2;
+    public TextMeshProUGUI strokeLvl3;
     public TextMeshProUGUI strokeTotal;
 
     public AudioSource audioSound;
@@ -26,7 +27,10 @@ public class SummaryManager : MonoBehaviour
         int strokes2 = PlayerPrefs.GetInt("Lvl 2 Beta", 0);
         strokeLvl2.text = "+ Level 2: " + strokes2;
 
-        int total = strokes1 + strokes2;
+        int strokes3 = PlayerPrefs.GetInt("Lvl 3 Beta", 0);
+        strokeLvl3.text = "+ Level 3: " + strokes3;
+
+        int total = strokes1 + strokes2 + strokes3;
         strokeTotal.text = "+ Total: " + total;
     }
 }

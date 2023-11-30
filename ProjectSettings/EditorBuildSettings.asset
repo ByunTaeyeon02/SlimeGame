@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Lvl 2 Beta.unity
     guid: c494ff8bd432c9b4b94c88c83b91cbbf
   - enabled: 1
+    path: Assets/Scenes/Lvl 3 Beta.unity
+    guid: db91ea1db9a4e894fbda030a908f7fe7
+  - enabled: 1
     path: Assets/Scenes/Summary.unity
     guid: da662a1443a7b75458f6b9460b67263d
+  - enabled: 1
+    path: Assets/Scenes/Highscore.unity
+    guid: 784fa3115b6c9f844ad06a7eab4cdf07
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 890d40c53974e9b4fb6798b6ebb85db4
   m_configObjects: {}

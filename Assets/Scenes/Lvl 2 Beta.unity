@@ -2921,13 +2921,13 @@ MonoBehaviour:
   target: {fileID: 917213884}
   targetClone: {fileID: 625581723}
   offset: {x: 2, y: 3, z: -10}
-  zoomSize: 10
+  zoomSize: 20
   curCam: 3
-  minSize: 10
-  maxSize: 20
+  minSize: 20
+  maxSize: 30
   distanceOffset: -2.5
   camSpeed: 1.5
-  maxOffsetX: 10
+  maxOffsetX: 40
   targetAspectRatio: 1.7777778
 --- !u!114 &255156645
 MonoBehaviour:

@@ -66,16 +66,19 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.SetInt(currentSceneName, slime1.GetComponent<FlingSlimeSimplify>().parNum);
             PlayerPrefs.Save();
-
-            if (String.Compare(currentSceneName, "Lvl 1") == 0)
+            int strokes1 = PlayerPrefs.GetInt("Lvl 1 Lowest", 0);
+            if (PlayerPrefs.GetInt(currentSceneName + " Lowest", 1000) > slime1.GetComponent<FlingSlimeSimplify>().parNum)
             {
-                SceneManager.LoadScene("Lvl 2 Beta");
-            } else if (String.Compare(currentSceneName, "Lvl 2 Beta") == 0)
-            {
-                SceneManager.LoadScene("Summary");
+                PlayerPrefs.SetInt(currentSceneName + " Lowest", slime1.GetComponent<FlingSlimeSimplify>().parNum);
             }
-            else
-            {
+
+            if (String.Compare(currentSceneName, "Lvl 1") == 0) {
+                SceneManager.LoadScene("Lvl 2 Beta");
+            } else if (String.Compare(currentSceneName, "Lvl 2 Beta") == 0) {
+                SceneManager.LoadScene("Lvl 3 Beta");
+            } else if (String.Compare(currentSceneName, "Lvl 3 Beta") == 0) {
+                SceneManager.LoadScene("Summary");
+            } else {
                 SceneManager.LoadScene("TitleScreen");
             }
         }
