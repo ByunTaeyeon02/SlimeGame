@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
     private bool isSettingsOpen;
     public SlimeScript slime1;
     public SlimeScript slime2;
-    public TextMeshProUGUI heartsText;
+    public HeartManager heartIcons;
     public TextMeshProUGUI strokeText;
 
     public FinishLine slime1Finish;
     public FinishLine slime2Finish;
+
+    public AudioSource popSoundEffect;
 
     private void Start()
     {
@@ -31,9 +33,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        heartsText.text = "Slime1 Hearts: " + slime1.health + "\nSlime2 Hearts: " + slime2.health;
+        heartIcons.purpleHealth = slime1.health;
+        heartIcons.orangeHealth = slime2.health;
 
-        strokeText.text = "Stroke: " + slime1.GetComponent<FlingSlimeSimplify>().parNum;
+        if (slime1.GetComponent<FlingSlimeSimplify>().parNum == 1)
+        {
+            strokeText.text = "Stroke: " + slime1.GetComponent<FlingSlimeSimplify>().parNum;
+        } else
+        {
+            strokeText.text = "Strokes: " + slime1.GetComponent<FlingSlimeSimplify>().parNum;
+        }
 
         if (!isPaused)
         {
@@ -54,18 +63,27 @@ public class GameManager : MonoBehaviour
             Debug.Log(strokeText.text);
             string currentSceneName = SceneManager.GetActiveScene().name;
             Debug.Log(currentSceneName);
-            if (String.Compare(currentSceneName, "Tutorial Beta") == 0)
+
+            PlayerPrefs.SetInt(currentSceneName, slime1.GetComponent<FlingSlimeSimplify>().parNum);
+            PlayerPrefs.Save();
+
+            if (String.Compare(currentSceneName, "Lvl 1") == 0)
             {
-                SceneManager.LoadScene("Lvl1 Beta");
-            } else
+                SceneManager.LoadScene("Lvl 2 Beta");
+            } else if (String.Compare(currentSceneName, "Lvl 2 Beta") == 0)
             {
-                SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("Summary");
+            }
+            else
+            {
+                SceneManager.LoadScene("TitleScreen");
             }
         }
     }
 
     public void ToggleSettings()
     {
+        playSound();
         if (isSettingsOpen)
         {
             settingsPopup.SetActive(false);
@@ -77,7 +95,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void TogglePause()
-    {   
+    {
+        playSound();
         if (isPaused)
         {
             Time.timeScale = 1f;
@@ -90,13 +109,19 @@ public class GameManager : MonoBehaviour
 
     public void ResetSlimes()
     {
+        playSound();
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
 
     public void toMenu()
     {
-        SceneManager.LoadScene("Title");
+        playSound();
+        SceneManager.LoadScene("TitleScreen");
     }
 
+    public void playSound()
+    {
+        popSoundEffect.Play();
+    }
 }

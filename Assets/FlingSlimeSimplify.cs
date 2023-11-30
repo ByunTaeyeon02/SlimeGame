@@ -22,6 +22,10 @@ public class FlingSlimeSimplify : MonoBehaviour
     public int parNum = 0;
     public bool dragging = false;
 
+    public CircleCollider2D pTrigger;
+    public CircleCollider2D oTrigger;
+
+
     private void Start()
     {
         // Set up LineRenderer properties
@@ -44,6 +48,15 @@ public class FlingSlimeSimplify : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             OnMouseUp();
+        }
+
+        if (slime1.bones.Count > 6 && slime1.bones[6] != null)
+        {
+            pTrigger.transform.position = slime1.bones[6].position;
+        }
+        if (slime2.bones.Count > 6 && slime2.bones[6] != null)
+        {
+            oTrigger.transform.position = slime2.bones[6].position;
         }
     }
 
